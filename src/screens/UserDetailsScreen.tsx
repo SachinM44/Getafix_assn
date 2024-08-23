@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
+//@ts-ignore
 const UserDetailsScreen = ({ route }) => {
   const { mobileNumber } = route.params;
 
@@ -8,7 +8,6 @@ const UserDetailsScreen = ({ route }) => {
     <View style={styles.container}>
       <Text style={styles.title}>User Details</Text>
       <Text style={styles.detail}>Mobile Number: {mobileNumber}</Text>
-      {/* Add more user details here */}
     </View>
   );
 };

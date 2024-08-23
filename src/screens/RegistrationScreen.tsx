@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Text, Alert } from 'react-native';
 import { validateEmail, validateMobileNumber, validatePassword } from '../utils/validation';
-
+//@ts-ignore
 const RegistrationScreen = ({ navigation }) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -26,7 +26,7 @@ const RegistrationScreen = ({ navigation }) => {
       Alert.alert('Error', 'Passwords do not match');
       return;
     }
-    // Logic to handle user registration
+   
     navigation.navigate('LoginScreen');
   };
 
