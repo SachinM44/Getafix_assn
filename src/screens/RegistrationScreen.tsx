@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Text, Alert } from 'react-native';
+import { View, TextInput, Button, Text, Alert } from 'react-native';
+import commonStyles from '../styles/commonStyles';
 import { validateEmail, validateMobileNumber, validatePassword } from '../utils/validation';
 //@ts-ignore
 const RegistrationScreen = ({ navigation }) => {
@@ -31,73 +32,53 @@ const RegistrationScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Register</Text>
+    <View style={commonStyles.container}>
+      <Text style={commonStyles.title}>Register</Text>
       <TextInput
-        style={styles.input}
+        style={commonStyles.input}
         placeholder="Full Name"
+        placeholderTextColor={commonStyles.placeholderText.color}
         value={fullName}
         onChangeText={setFullName}
       />
       <TextInput
-        style={styles.input}
+        style={commonStyles.input}
         placeholder="Email"
+        placeholderTextColor={commonStyles.placeholderText.color}
         value={email}
         onChangeText={setEmail}
         keyboardType="email-address"
       />
       <TextInput
-        style={styles.input}
+        style={commonStyles.input}
         placeholder="Mobile Number"
+        placeholderTextColor={commonStyles.placeholderText.color}
         value={mobileNumber}
         onChangeText={setMobileNumber}
         keyboardType="phone-pad"
       />
       <TextInput
-        style={styles.input}
+        style={commonStyles.input}
         placeholder="Password"
+        placeholderTextColor={commonStyles.placeholderText.color}
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
       <TextInput
-        style={styles.input}
+        style={commonStyles.input}
         placeholder="Confirm Password"
+        placeholderTextColor={commonStyles.placeholderText.color}
         value={confirmPassword}
         onChangeText={setConfirmPassword}
         secureTextEntry
       />
       <Button title="Register" onPress={handleRegister} />
-      <Text style={styles.loginText} onPress={() => navigation.navigate('LoginScreen')}>
+      <Text style={commonStyles.linkText} onPress={() => navigation.navigate('LoginScreen')}>
         Already have an account? Login
       </Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 12,
-    paddingHorizontal: 8,
-  },
-  loginText: {
-    marginTop: 16,
-    color: 'blue',
-    textAlign: 'center',
-  },
-});
 
 export default RegistrationScreen;

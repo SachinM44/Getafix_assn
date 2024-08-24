@@ -1,27 +1,13 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Text } from 'react-native';
 import commonStyles from '../styles/commonStyles';
-import { validateMobileNumber, validatePassword } from '../utils/validation';
-import { loginUser } from '../services/AuthService';
-
+//@ts-ignore
 const LoginScreen = ({ navigation }) => {
   const [mobileNumber, setMobileNumber] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    if (!validateMobileNumber(mobileNumber)) {
-      Alert.alert('Error', 'Invalid mobile number');
-      return;
-    }
-    if (!validatePassword(password)) {
-      Alert.alert('Error', 'Password must be at least 6 characters');
-      return;
-    }
-    if (loginUser(mobileNumber, password)) {
-      navigation.navigate('UserDetailsScreen', { mobileNumber });
-    } else {
-      Alert.alert('Error', 'Invalid credentials');
-    }
+    navigation.navigate('UserDetailsScreen', { mobileNumber });
   };
 
   return (
@@ -30,6 +16,7 @@ const LoginScreen = ({ navigation }) => {
       <TextInput
         style={commonStyles.input}
         placeholder="Mobile Number"
+        placeholderTextColor={commonStyles.placeholderText.color} 
         value={mobileNumber}
         onChangeText={setMobileNumber}
         keyboardType="phone-pad"
@@ -37,13 +24,12 @@ const LoginScreen = ({ navigation }) => {
       <TextInput
         style={commonStyles.input}
         placeholder="Password"
+        placeholderTextColor={commonStyles.placeholderText.color} 
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
-      <View style={commonStyles.button}>
-        <Text style={commonStyles.buttonText} onPress={handleLogin}>Login</Text>
-      </View>
+      <Button title="Login" onPress={handleLogin} />
       <Text style={commonStyles.linkText} onPress={() => navigation.navigate('RegistrationScreen')}>
         Don't have an account? Register
       </Text>

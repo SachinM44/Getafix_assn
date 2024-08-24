@@ -1,4 +1,3 @@
-// src/styles/commonStyles.ts
 import { StyleSheet } from 'react-native';
 
 const commonStyles = StyleSheet.create({
@@ -11,6 +10,7 @@ const commonStyles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 16,
     textAlign: 'center',
+    color:'blue'
   },
   input: {
     height: 40,
@@ -18,6 +18,11 @@ const commonStyles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 12,
     paddingHorizontal: 8,
+    color: 'black',
+  },
+  
+  placeholderText: {
+    color: 'gray'
   },
   button: {
     backgroundColor: '#007BFF',
@@ -34,6 +39,12 @@ const commonStyles = StyleSheet.create({
     color: 'blue',
     textAlign: 'center',
   },
+  detail: {
+    fontSize: 18,
+    marginBottom: 12,
+    color:'blue'
+  },
+  
 });
 
 export default commonStyles;
